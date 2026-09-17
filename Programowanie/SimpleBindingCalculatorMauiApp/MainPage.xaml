@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage x:Class="SimpleBindingCalculatorMauiApp.MainPage"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="thisPage"
+             BindingContext="{x:Reference thisPage}">
 
     <StackLayout Padding="30,0" Spacing="25">
         <Label Background="#E61B1B"
@@ -10,13 +12,14 @@
                FontFamily="Arial"
                FontSize="20"
                Text="Podaj pierwszą liczbę" />
-        <Entry x:Name="firstNumberEntry" />
+        <Entry Text="{Binding StrFirstNumber}" />
         <StackLayout Orientation="Horizontal">
             <Label Text="Podaj drugą liczbę" VerticalTextAlignment="Center" />
-            <Entry x:Name="secondNumberEntry" BackgroundColor="Aqua" />
+            <Entry BackgroundColor="Aqua" Text="{Binding StrSecondNumber}" />
         </StackLayout>
         <Button Clicked="Button_Clicked" Text="Oblicz" />
-        <Label x:Name="resultLabel" />
-
+        <Label BackgroundColor="{Binding ReturnColor}"
+               FontSize="30"
+               Text="{Binding ResultMessage}" />
     </StackLayout>
 </ContentPage>

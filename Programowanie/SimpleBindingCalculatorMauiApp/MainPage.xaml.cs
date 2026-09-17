@@ -2,6 +2,28 @@
 {
     public partial class MainPage : ContentPage
     {
+        public string StrFirstNumber { get; set; }
+        public string StrSecondNumber { get; set; }
+
+        private string resultMessage;
+
+        public string ResultMessage
+        {
+            get { return resultMessage; }
+            set 
+            { 
+                resultMessage = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Color returnColor;
+
+        public Color ReturnColor
+        {
+            get { return returnColor; }
+            set { returnColor = value; OnPropertyChanged(); }
+        }
 
         public MainPage()
         {
@@ -13,18 +35,18 @@
             //pobrać dane wejściowe
             //var firstNumber = int.Parse(firstNumberEntry.Text);
             //int firstNumber;
-            if (int.TryParse(firstNumberEntry.Text, out int firstNumber)
-                && int.TryParse(secondNumberEntry.Text, out int secondNumber))
+            if (int.TryParse(StrFirstNumber, out int firstNumber)
+                && int.TryParse(StrSecondNumber, out int secondNumber))
             {
                 //wykonać operację dodawania
                 //wyświetlić wynik
-                resultLabel.Text = $"Wynik dodawania to {firstNumber + secondNumber}";
-                resultLabel.BackgroundColor = Colors.Green;
+                ResultMessage = $"Wynik dodawania to {firstNumber + secondNumber}";
+                ReturnColor = Colors.Green;
             }
             else
             {
-                resultLabel.Text = $"Podałeś nieprawidłowe dane.";
-                resultLabel.BackgroundColor = Colors.Red;
+                ResultMessage = $"Podałeś nieprawidłowe dane.";
+                ReturnColor = Colors.Red;
             }
 
         }
