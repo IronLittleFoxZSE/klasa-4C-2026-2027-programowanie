@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="LayoutsMauiApp.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <StackLayout Spacing="20">
+        <Label Background="Red"
+               HorizontalTextAlignment="End"
+               Text="Label w StackLayout" />
+        <Button HorizontalOptions="Center" Text="Przykładowy" />
+
+        <StackLayout Orientation="Horizontal">
+            <Label Background="Brown"
+                   FontSize="50"
+                   Text="Inny label" />
+            <Button Text="Przycisk" />
+        </StackLayout>
+
+        <Label BackgroundColor="Beige"
+               FontSize="30"
+               Text="Kolejny label" />
+
+        <FlexLayout Direction="Row"
+                    FlowDirection="LeftToRight"
+                    Wrap="Wrap">
+            <Button Text="1" />
+            <Button Text="2" WidthRequest="300" />
+            <Label Background="Beige" Text="Flex" />
+            <Button Text="3" WidthRequest="300" />
+        </FlexLayout>
+
+        <Grid BackgroundColor="Bisque"
+              ColumnDefinitions="50, 70,*, auto, * "
+              RowDefinitions="60, 50">
+            <Button Text="0" />
+            <Button Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Text="1" />
+            <Button Grid.Row="1"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Text="2" />
+            <Button Grid.Column="3" Text="3" />
+            <StackLayout Grid.Column="4">
+                <Label Text="1" />
+                <Label Text="2" />
+            </StackLayout>
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>
